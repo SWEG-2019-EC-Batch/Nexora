@@ -1,0 +1,54 @@
+/*INPUT:
+   1. Electricity units consumed (kWh).
+    OUTPUT:
+   1. Energy charge (birr).
+   2. Service charge (birr).
+   3. Total electricity bill (birr).
+PROCESS:
+   1. Start.
+   2. Declare variables for units, energy
+      charge, service charge and total bill.
+   3. Read the electricity units consumed.
+   4. Calculate the energy charge using
+      the conditional operator:
+      - If units <= 50:
+        Energy charge = units * 1.50.
+      - Otherwise:
+        Energy charge = (50 * 1.50) +
+                        ((units - 50) * 2.00).
+   5. Set the service charge to 10 birr.
+   6. Calculate the total bill:
+      Total bill = Energy charge + Service charge.
+   7. Display the energy charge, service
+      charge and total bill.
+   8. Stop.
+*/
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    int units;
+    double energyCharge, serviceCharge, totalBill;
+
+    cout << "Enter electricity units: ";
+    cin >> units;
+
+    energyCharge = (units <= 50)
+                   ? units * 1.50
+                   : (50 * 1.50) + ((units - 50) * 2.00);
+
+    serviceCharge = 10.00;
+
+    totalBill = energyCharge + serviceCharge;
+
+    cout << fixed << setprecision(2);
+
+    cout << "Energy Charge: " << energyCharge << " Birr" << endl;
+    cout << "Service Charge: " << serviceCharge << " Birr" << endl;
+    cout << "Total Bill: " << totalBill << " Birr" << endl;
+
+    return 0;
+}
