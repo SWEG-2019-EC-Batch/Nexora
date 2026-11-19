@@ -1,0 +1,115 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int baggage_weight;
+    int available_seat;
+    int age;
+    int choice;
+
+    const int BAGGAGE_LIMIT = 20;
+    const int BAGGAGE_RATE = 10;
+
+    double trip_fare;
+    double baggage_fare;
+    double discount;
+    double total_fare;
+
+    char student;
+
+    cout << "Enter number of available seats: ";
+    cin >> available_seat;
+
+    if (available_seat > 0)
+    {
+
+        cout << "\n===== AVAILABLE ROUTES =====" << endl;
+        cout << "1. Addis Ababa to Hawassa - 500 birr" << endl;
+        cout << "2. Addis Ababa to Dire Dawa - 700 birr" << endl;
+        cout << "3. Addis Ababa to Bahir Dar - 900 birr" << endl;
+        cout << "4. Addis Ababa to Gondar - 1000 birr" << endl;
+        cout << "5. Addis Ababa to Jimma - 600 birr" << endl;
+
+        cout << "\nChoose your destination: ";
+        cin >> choice;
+
+        // Select destination using switch case
+        switch (choice)
+        {
+
+        case 1:
+            trip_fare = 500;
+            break;
+
+        case 2:
+            trip_fare = 700;
+            break;
+
+        case 3:
+            trip_fare = 900;
+            break;
+
+        case 4:
+            trip_fare = 1000;
+            break;
+
+        case 5:
+            trip_fare = 600;
+            break;
+
+        default:
+            cout << "Invalid destination!" << endl;
+            return 0;
+        }
+
+        cout << "Enter your age: ";
+        cin >> age;
+
+        cout << "Are you a student? (Y/N): ";
+        cin >> student;
+
+        // Calculate discount using else-if ladder
+        if (age < 12)
+        {
+            discount = trip_fare * 0.50;
+        }
+        else if (student == 'Y' || student == 'y')
+        {
+            discount = trip_fare * 0.30;
+        }
+        else
+        {
+            discount = 0;
+        }
+
+        cout << "Enter baggage weight: ";
+        cin >> baggage_weight;
+
+        // Calculate additional baggage fare
+        if (baggage_weight > BAGGAGE_LIMIT)
+        {
+            baggage_fare = (baggage_weight - BAGGAGE_LIMIT) * BAGGAGE_RATE;
+        }
+        else
+        {
+            baggage_fare = 0;
+        }
+
+        // Calculate total fare
+        total_fare = trip_fare - discount + baggage_fare;
+
+        cout << "\n===== TICKET DETAILS =====" << endl;
+        cout << "Original trip fare: " << trip_fare << " birr" << endl;
+        cout << "Discount: " << discount << " birr" << endl;
+        cout << "Baggage fare: " << baggage_fare << " birr" << endl;
+        cout << "Total fare: " << total_fare << " birr" << endl;
+    }
+    else
+    {
+        cout << "All seats are sold out!" << endl;
+    }
+
+    return 0;
+}
