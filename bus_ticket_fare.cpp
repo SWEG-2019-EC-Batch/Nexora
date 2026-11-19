@@ -25,7 +25,7 @@ int main()
     if (available_seat > 0)
     {
 
-        cout << "\n===== AVAILABLE ROUTES =====" << endl;
+        cout << " AVAILABLE ROUTES " << endl;
         cout << "1. Addis Ababa to Hawassa - 500 birr" << endl;
         cout << "2. Addis Ababa to Dire Dawa - 700 birr" << endl;
         cout << "3. Addis Ababa to Bahir Dar - 900 birr" << endl;
